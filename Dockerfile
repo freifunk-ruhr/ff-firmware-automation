@@ -6,6 +6,7 @@ ENV GLUON_VERSION=master
 ENV GLUON_RELEASE=${GLUON_VERSION}
 ENV GLUON_TARGET=x86-64
 ENV GLUON_DEPRECATED=full
+ENV FORCE_UNSAFE_CONFIGURE==1
 
 COPY entrypoint.sh /scripts/entrypoint.sh
 RUN chmod +x /scripts/entrypoint.sh

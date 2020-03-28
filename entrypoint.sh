@@ -14,4 +14,4 @@ echo "Updating gluon framework"
 make update
 
 echo "Building target"
-make GLUON_TARGET=${GLUON_TARGET} -j4 V=s
+make GLUON_TARGET=${GLUON_TARGET} -j 1 V=s
