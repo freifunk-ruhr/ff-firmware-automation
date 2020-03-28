@@ -6,10 +6,10 @@ pipeline {
     }
     parameters {
         string(name: 'CONFIG_REPOSITORY', defaultValue: 'https://gitlab.freifunk-kitzingen.de/derhoffmann/site-ffvec.git', description: 'The repository with the configuration')
-        string(name: 'CONFIG_BRANCH', defaultValue: 'top', description: 'The branch with the configuration')
+        string(name: 'CONFIG_BRANCH', defaultValue: 'master', description: 'The branch with the configuration')
         string(name: 'GLUON_VERSION', defaultValue: 'master', description: 'Gluon version')
-        choice(name: 'GLUON_DEBUG', choices: ['one', 'two', 'three'], description: 'Gluon version')
-        string(name: 'GLUON_CORES', defaultValue: '1', description: 'Cores that should be assigned to the docker container and to the gluon firmware build process')
+        choice(name: 'GLUON_DEBUG', choices: ['1', '2'], description: 'Build with -j1 and V=s for debugging build errors')
+        string(name: 'GLUON_CORES', defaultValue: '2', description: 'Cores that should be assigned to the docker container and to the gluon firmware build process')
         
         booleanParam(name: 'test', defaultValue: true)
     }
