@@ -1,7 +1,7 @@
-CONFIG_REPOSITORY:=https://gitea.indie-freifunk.net/oszilloskop/site-ffffm.git#
-CONFIG_BRANCH:=top#
-DOCKER_IMAGE_VERSION=abc
-BUILD_TARGETS=ar71xx-generic \
+CONFIG_REPOSITORY ?= https://gitea.indie-freifunk.net/oszilloskop/site-ffffm.git#
+CONFIG_BRANCH ?= top#
+DOCKER_IMAGE_VERSION ?= abc
+BUILD_TARGETS ?= ar71xx-generic \
 	ar71xx-tiny \
 	ar71xx-nand \
 	ath79-generic \
