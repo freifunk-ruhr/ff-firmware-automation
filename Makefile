@@ -1,6 +1,8 @@
 CONFIG_REPOSITORY ?= https://gitea.indie-freifunk.net/oszilloskop/site-ffffm.git
 CONFIG_BRANCH ?= top
 GLUON_VERSION ?= master
+GLUON_CORES ?= 1
+GLUON_DEBUG ?= 0
 DOCKER_IMAGE_VERSION ?= latest
 DOCKER_IMAGE = docker.pkg.github.com/freifunk-ruhr/ff-firmware-automation/build:${DOCKER_IMAGE_VERSION}
 BUILD_TARGETS ?= ar71xx-generic \
@@ -34,4 +36,4 @@ clone-config:
 
 .PHONY: build-targets
 build-targets:
-	$(foreach target,$(BUILD_TARGETS),docker run --rm -e GLUON_VERSION=${GLUON_VERSION} -e GLUON_TARGET=$(target) -v ${PWD}/output:/app/gluon/output -v ${PWD}/site:/app/site ${DOCKER_IMAGE};)
+	$(foreach target,$(BUILD_TARGETS),docker run --rm --cpus=${GLUON_CORES} -e GLUON_DEBUG=${GLUON_DEBUG} -e GLUON_CORES=${GLUON_CORES} -e GLUON_VERSION=${GLUON_VERSION} -e GLUON_TARGET=$(target) -v ${PWD}/output:/app/gluon/output -v ${PWD}/site:/app/site ${DOCKER_IMAGE};)
