@@ -14,7 +14,11 @@ An Automation-Script which builds the freifunk-firmware with your configuration 
 ## Installation
 1. Build the image  
 `$ make build-container`  
-2. 
+2. Clone your configuration  
+`$ CONFIG_REPOSITORY=giturl CONFIG_BRANCH=branch make clone-config`  
+3. Build targets
+`$ make build-targets`  
+    * You can build specific targets by overriding `BUILD_TARGETS`.
 
 ## License
 https://github.com/freifunk-ruhr/boilerplate/blob/master/LICENSE
