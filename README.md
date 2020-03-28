@@ -8,10 +8,13 @@ An Automation-Script which builds the freifunk-firmware with your configuration 
 * [Memorandium of Understanding](#Memorandium-of-Understanding)
 
 ## Requirements
-todo
+* Docker
+* GNU-Make *(optional)*
 
 ## Installation
-todo
+1. Build the image  
+`$ make build-container`  
+2. 
 
 ## License
 https://github.com/freifunk-ruhr/boilerplate/blob/master/LICENSE
