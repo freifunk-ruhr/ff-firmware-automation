@@ -1,7 +1,14 @@
 FROM debian:latest
 
 WORKDIR /app
+
+ENV GLUON_VERSION=master
+ENV GLUON_RELEASE=${GLUON_VERSION}
+ENV GLUON_TARGET=x86-64
+ENV GLUON_DEPRECATED=full
+
 COPY entrypoint.sh /scripts/entrypoint.sh
+RUN chmod +x /scripts/entrypoint.sh
 
 RUN apt update && apt install -y \
     git \
@@ -16,8 +23,5 @@ RUN apt update && apt install -y \
     wget \
     time && \
     rm -rf /var/lib/apt/lists/*
-
-ENV GLUON_VERSION=master
-ENV GLUON_TARGET=x86-64
 
 ENTRYPOINT [ "/scripts/entrypoint.sh" ]
