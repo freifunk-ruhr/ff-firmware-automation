@@ -34,4 +34,4 @@ clone-config:
 
 .PHONY: build-targets
 build-targets:
-	$(foreach target,$(BUILD_TARGETS),docker run --rm -e GLUON_VERSION=${GLUON_VERSION} -e GLUON_TARGET=$(target) -v ${PWD}/site:/app/site ${DOCKER_IMAGE};)
+	$(foreach target,$(BUILD_TARGETS),docker run --rm -e GLUON_VERSION=${GLUON_VERSION} -e GLUON_TARGET=$(target) -v ${PWD}/output:/app/gluon/output -v ${PWD}/site:/app/site ${DOCKER_IMAGE};)

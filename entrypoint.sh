@@ -1,12 +1,17 @@
 #!/bin/bash
 
 echo "Cloning gluon framework"
-git clone https://github.com/freifunk-gluon/gluon.git -b ${GLUON_VERSION} gluon
+mkdir -p gluon
+git clone https://github.com/freifunk-gluon/gluon.git -b ${GLUON_VERSION} gluon.tmp
+mv gluon.tmp/.git gluon/
+rm -rf gluon.tmp
+cd gluon
+git reset --hard HEAD && git pull
 
 echo "Creating symlink site configuration"
-ln -s /app/site/ gluon/site
+ln -s /app/site/ site
 echo "Updating gluon framework"
-cd gluon && make update
+make update
 
 echo "Building target"
-cd gluon && make GLUON_TARGET=${GLUON_TARGET} -j4 V=s
+make GLUON_TARGET=${GLUON_TARGET} -j4 V=s
