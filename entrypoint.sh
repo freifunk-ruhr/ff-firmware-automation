@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "DEBUG: ENVIRONMENT VARIABLES"
+echo "GLUON_TARGET: ${GLUON_TARGET}"
+echo "GLUON_CORES: ${GLUON_CORES}"
+echo ""
+
 echo "Cloning gluon framework"
 mkdir -p gluon
 git clone https://github.com/freifunk-gluon/gluon.git -b ${GLUON_VERSION} gluon.tmp
@@ -14,4 +19,4 @@ echo "Updating gluon framework"
 make update
 
 echo "Building target"
-make GLUON_TARGET=${GLUON_TARGET} -j ${GLUON_CORES} V=s
+make GLUON_TARGET=${GLUON_TARGET} -j${GLUON_CORES} V=s
