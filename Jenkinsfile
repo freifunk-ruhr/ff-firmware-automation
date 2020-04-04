@@ -31,7 +31,7 @@ pipeline {
     }
     post {
         always {           
-            archiveArtifacts(artifacts: 'output/', fingerprint: true)
+            archiveArtifacts(artifacts: 'output/**/*', fingerprint: true)
         }
     }
 }
