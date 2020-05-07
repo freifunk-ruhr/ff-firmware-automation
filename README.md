@@ -1,4 +1,4 @@
-# Firmware AUtomation
+# Firmware Automation
 An Automation-Script which builds the freifunk-firmware with your configuration for all build-targets (automatically).
 
 ## Index
